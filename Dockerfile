@@ -4,9 +4,9 @@ COPY aliyun.source /etc/apt/sources.list
 COPY jdk-8u231-linux-x64.tar.gz /root/
 
 RUN tar -zxvf  /root/jdk-8u231-linux-x64.tar.gz
-ENV JAVA_HOME /root/jdk-8u231-linux-x64
+ENV JAVA_HOME /root/jdk1.8.0_231
 ENV PATH $JAVA_HOME/bin:$PATH
-RUN chmod -R +x /root/jdk-8u231-linux-x64
+RUN chmod -R +x /root/jdk1.8.0_231
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y git curl apt-utils && rm -rf /var/lib/apt/lists/*
 
