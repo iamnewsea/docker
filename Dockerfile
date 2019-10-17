@@ -1,7 +1,5 @@
-FROM docker
+FROM ubuntu
 COPY aliyun.source /etc/apt/sources.list
-
-RUN { pwd; }
 COPY jdk-8u231-linux-x64.tar.gz /root/
 
 RUN tar -zxvf  /root/jdk-8u231-linux-x64.tar.gz -C /root/ \
@@ -10,7 +8,10 @@ RUN tar -zxvf  /root/jdk-8u231-linux-x64.tar.gz -C /root/ \
 ENV JAVA_HOME /root/jdk1.8.0_231
 ENV PATH $JAVA_HOME/bin:$PATH
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y git curl apt-utils && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y git curl wget vim apt-utils \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
 #ARG user=jenkins
 #ARG group=jenkins
