@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk-stretch
-
+COPY aliyun.source /etc/apt/sources.list
 RUN apt-get update && apt-get upgrade -y && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
 
 #ARG user=jenkins
