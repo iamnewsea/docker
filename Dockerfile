@@ -1,7 +1,7 @@
 FROM docker
 COPY aliyun.source /etc/apt/sources.list
 
-RUN { pwd }
+RUN { pwd; }
 COPY jdk-8u231-linux-x64.tar.gz /root/
 
 RUN tar -zxvf  /root/jdk-8u231-linux-x64.tar.gz -C /root/ \
